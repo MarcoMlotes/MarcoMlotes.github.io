@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YAEL SANDOVAL | Productor Filmmaker Creativo</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #000000;
+            color: #ffffff;
+        }
+
+        /* NAVBAR PREMIUM DISCRETO */
+        header {
+            background: #000000;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Un poquito más de espacio por el texto */
+            text-decoration: none;
+        }
+
+        /* LOGO MÁS GRANDE */
+        .logo-img {
+            height: 90px;
+            width: 90px;
+            object-fit: cover;
+            object-position: center 30%;
+            border-radius: 50%;
+        }
+
+        /* TEXTO DORADO EN NEGRITA JUNTO AL LOGO */
+        .logo-texto {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #a27931;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #888888;
+            margin-left: 25px;
+            font-weight: 400;
+            font-size: 14px;
+            transition: .3s;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        /* HERO SECTION CON ESPACIO OPTIMIZADO */
+        .hero {
+            display: flex;
+            min-height: 65vh; /* Reduce el espacio vacío abajo del botón */
+            align-items: stretch;
+            background: #000000;
+            padding: 0;
+        }
+
+        .hero-left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px 8%;
+            background: #000000;
+        }
+
+        .hero-left h1 {
+            font-size: 65px;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        .hero-left .subtitle {
+            font-size: 14px;
+            font-weight: 300;
+            color: #aaaaaa;
+            margin-top: 15px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .btn-gold {
+            margin-top: 50px;
+            padding: 12px 35px;
+            background: linear-gradient(90deg, #513a15 0%, #a27931 100%);
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            align-self: flex-start;
+            transition: .3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-gold:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .hero-right {
+            flex: 1;
+            background: url("C:\\Users\\marco\\Desktop\\foto-yael.png") no-repeat center center;
+            background-size: cover;
+            min-height: 500px;
+        }
+
+        /* ESTADO INICIAL OCULTO PARA EL RESTO DEL SITIO */
+        .contenido-oculto {
+            display: none;
+        }
+
+        /* SECCIÓN ACERCA DE */
+        .acerca-de {
+            padding: 100px 8%;
+            background: #000000;
+        }
+
+        .acerca-de h2 {
+            font-size: 45px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 60px;
+            text-align: left;
+        }
+
+        .sobre-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .imagen-acerca {
+            width: 100%;
+            max-height: 550px;
+            object-fit: contain;
+            border-radius: 4px;   
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            background: #0a0a0a;
+            border: 1px solid #1a1a1a;
+            position: sticky;
+            top: 100px;
+        }
+
+        .sobre-texto h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        .sobre-texto .tagline {
+            font-size: 14px;
+            color: #a27931;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .sobre-texto p {
+            font-size: 15px;
+            color: #cccccc;
+            line-height: 1.8;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        /* SECCIÓN PORTAFOLIO MULTIMEDIA */
+        .portafolio-section {
+            padding: 60px 8% 40px 8%;
+        }
+
+        .portafolio-section h2 {
+            font-size: 40px;
+            margin-bottom: 40px;
+            color: #ffffff;
+        }
+
+        .video-destacado {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .video-balam {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-radius: 4px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            border: 1px solid #1a1a1a;
+        }
+
+        /* CONTENEDOR DEL BOTÓN CENTRADO */
+        .area-disparador {
+            display: flex;
+            justify-content: center;
+            padding-bottom: 60px;
+        }
+
+        .btn-toggle {
+            padding: 15px 40px;
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid #a27931;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: .4s ease;
+        }
+
+        .btn-toggle:hover {
+            background: #ffffff;
+            color: #000000;
+            border-color: #ffffff;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        /* SECCIÓN DE IMÁGENES PANTALLA COMPLETA */
+        .galeria-oculta {
+            display: none;
+            padding: 60px 8%;
+            background: #000000;
+            min-height: 100vh;
+        }
+
+        .galeria-oculta h2 {
+            font-size: 40px;
+            margin-bottom: 50px;
+            text-align: center;
+            letter-spacing: 2px;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        .grid-imagenes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            align-items: start;
+            margin-bottom: 60px;
+        }
+
+        .grid-imagenes img {
+            width: 100%;
+            height: auto;
+            max-height: 450px;
+            object-fit: contain;
+            background: #050505;
+            border-radius: 4px;
+            border: 1px solid #161616;
+            transition: .4s ease;
+        }
+
+        .grid-imagenes img:hover {
+            transform: scale(1.02);
+            border-color: #a27931;
+            box-shadow: 0 15px 30px rgba(162, 121, 49, 0.15);
+        }
+
+        .btn-regresar {
+            display: block;
+            margin: 0 auto;
+            padding: 15px 45px;
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid #ffffff;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .btn-regresar:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        /* CONTACTO Y FOOTER */
+        .contacto {
+            padding: 80px 8%;
+            text-align: center;
+            border-top: 1px solid #111;
+        }
+
+        .contacto h2 {
+            font-size: 35px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .contacto-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contacto p {
+            font-size: 16px;
+            color: #888888;
+        }
+
+        footer {
+            padding: 40px;
+            text-align: center;
+            color: #444444;
+            font-size: 12px;
+            background: #000000;
+        }
+
+        /* RESPONSIVE MÓVIL */
+        @media (max-width: 900px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+
+            nav a {
+                margin: 0 10px;
+                font-size: 12px;
+            }
+
+            .hero {
+                flex-direction: column;
+            }
+
+            .hero-left {
+                padding: 50px 25px;
+                order: 1;
+            }
+
+            .hero-left h1 {
+                font-size: 42px;
+            }
+
+            .hero-right {
+                min-height: 400px;
+                order: 2;
+            }
+
+            .acerca-de {
+                padding: 60px 25px;
+            }
+
+            .acerca-de h2 {
+                font-size: 32px;
+                margin-bottom: 30px;
+            }
+
+            .sobre-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .imagen-acerca {
+                position: static;
+            }
+
+            .portafolio-section {
+                padding: 40px 20px;
+            }
+
+            .grid-imagenes {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SITIO PRINCIPAL -->
+    <div id="sitio-principal">
+        <header>
+            <a href="#inicio" class="logo-container">
+                <img src="https://raw.githubusercontent.com/MarcoMlotes/las-ma-anitas/main/logo.PNG" alt="Logo BALAM" class="logo-img">
+                <span class="logo-texto">BALAM FILMS</span>
+            </a>
+        </header>
+
+        <!-- SECCIÓN DE BIENVENIDA -->
+        <section class="hero" id="inicio">
+            <div class="hero-left">
+                <h1>YAEL<br>SANDOVAL</h1>
+                <p class="subtitle">PRODUCTOR FILMMAKER CREATIVO</p>
+                <!-- BOTÓN CONTROLADOR CON EVENTO ONCLICK -->
+                <button class="btn-gold" onclick="mostrarTodoElSitio()">Continuar</button>
+            </div>
+            <div class="hero-right"></div>
+        </section>
+
+        <!-- CONTENEDOR OCULTO AL INICIO -->
+        <div id="resto-del-sitio" class="contenido-oculto">
+            
+            <section class="acerca-de" id="sobre">
+                <h2>Acerca de:</h2>
+                <div class="sobre-grid">
+                    <div class="sobre-video">
+                        <img src="https://raw.githubusercontent.com/MarcoMlotes/las-ma-anitas/main/YAEL%20.JPG.jpeg" alt="Yael Sandoval" class="imagen-acerca">
+                    </div>
+                    <div class="sobre-texto">
+                        <h3>Yael Sandoval</h3>
+                        <p class="tagline">Filmmaker | Productor Audiovisual</p>
+                        
+                        <p>Edgar Sandoval es un filmmaker y productor audiovisual apasionado por transformar momentos reales en historias que trasciende el tiempo. Su trabajo nace de la convicción de que cada proyecto posee una esencia única y que, detrás de cada persona, artista o escenario, existe una historia que merece ser contada con autenticidad, sensibilidad y una mirada cinematográfica.</p>
+                        
+                        <p>A lo largo de su trayectoria ha desarrollado proyectos en el ámbito artístico, musical, social y comercial, colaborando con talentos del regional mexicano y diversas marcas, creando piezas audiovisuales que conectan emocionalmente con el público. Su estilo combina narrativa visual, composición cinematográfica y una atención minuciosa a los detalles para construir experiencias que van más allá de una simple producción de video.</p>
+                        
+                        <p>Hoy, Yael Sandoval continúa construyendo una trayectoria guiada por la pasión de contar historias auténticas, convencido de que el cine y el lenguaje audiovisual tienen el poder de conectar personas, despertar emociones y dejar una huella que trasciende generaciones.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="portafolio-section" id="portafolio">
+                <h2>Portafolio</h2>
+                <div class="video-destacado">
+                    <video class="video-balam" controls playsinline>
+                        <source src="https://raw.githubusercontent.com/MarcoMlotes/las-ma-anitas/main/balam.mp4" type="video/mp4">
+                        Tu navegador no soporta el formato de video.
+                    </video>
+                </div>
+            </section>
+
+            <div class="area-disparador">
+                <button class="btn-toggle" onclick="abrirGaleria()">Sección de imágenes</button>
+            </div>
+
+            <section id="contacto" class="contacto">
+                <h2>Contacto</h2>
+                <div class="contacto-info">
+                    <p>📧 correo: Balam.films94@gmail.com </p>
+                    <p>📱 +52 777-713-8002</p>
+                </div>
+            </section>
+
+            <footer>
+                © 2026 | BALAM Casa Productora Audiovisual | Yael Sandoval
+            </footer>
+
+        </div> <!-- CIERRE DEL CONTENEDOR OCULTO -->
+    </div>
+
+
+    <!-- SECCIÓN DE IMÁGENES OCULTA (SE DETONA DESDE LA SECCIÓN PORTAFOLIO) -->
+    <section class="galeria-oculta" id="galeriaFotos">
+        <h2>Galería de Imágenes Profesionales</h2>
+        
+        <div class="grid-imagenes">
+            <img src="https://raw.githubusercontent.com/MarcoMlotes/las-ma-anitas/main/im1.png" alt="Fotografía 1">
+            <img src="https://raw.githubusercontent.com/MarcoMlotes/las-ma-anitas/main/im2.png" alt="Fotografía 2">
+            <img src="https://raw.githubusercontent.com/MarcoMlotes/las-ma-anitas/main/im3.png" alt="Fotografía 3">
+            <img src="https://raw.githubusercontent.com/MarcoMlotes/las-ma-anitas/main/im4.png" alt="Fotografía 4">
+            <img src="https://raw.githubusercontent.com/MarcoMlotes/las-ma-anitas/main/im5.png" alt="Fotografía 5">
+            <img src="https://raw.githubusercontent.com/MarcoMlotes/las-ma-anitas/main/im6.png" alt="Fotografía 6">
+            <img src="https://raw.githubusercontent.com/MarcoMlotes/las-ma-anitas/main/im7.jpeg" alt="Fotografía 7">
+            <img src="https://raw.githubusercontent.com/MarcoMlotes/las-ma-anitas/main/im8.jpeg" alt="Fotografía 8">
+            <img src="https://raw.githubusercontent.com/MarcoMlotes/las-ma-anitas/main/im9.jpeg" alt="Fotografía 9">
+            <img src="https://raw.githubusercontent.com/MarcoMlotes/las-ma-anitas/main/im10.PNG" alt="Fotografía 10">
+            <img src="https://raw.githubusercontent.com/MarcoMlotes/las-ma-anitas/main/im11.jpeg" alt="Fotografía 11">
+            <img src="https://raw.githubusercontent.com/MarcoMlotes/las-ma-anitas/main/im12.jpeg" alt="Fotografía 12">
+            <img src="https://raw.githubusercontent.com/MarcoMlotes/las-ma-anitas/main/im13.jpeg" alt="Fotografía 13">
+            <img src="https://raw.githubusercontent.com/MarcoMlotes/las-ma-anitas/main/im14.jpeg" alt="Fotografía 14">
+        </div>
+
+        <button class="btn-regresar" onclick="cerrarGaleria()">Regresar</button>
+    </section>
+
+
+    <!-- CONTROL DE INTERACCIONES (JAVASCRIPT) -->
+    <script>
+        // Muestra el resto del portafolio cuando dan click al botón principal
+        function mostrarTodoElSitio() {
+            const restoSitio = document.getElementById('resto-del-sitio');
+            restoSitio.classList.remove('contenido-oculto');
+            
+            // Scroll suave hacia la info recien revelada
+            document.getElementById('sobre').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Abre la galería oculta de 14 fotos apagando el sitio principal
+        function abrirGaleria() {
+            document.getElementById('sitio-principal').style.display = 'none';
+            const galeria = document.getElementById('galeriaFotos');
+            galeria.style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        // Regresa de la galería al portafolio principal
+        function cerrarGaleria() {
+            document.getElementById('galeriaFotos').style.display = 'none';
+            document.getElementById('sitio-principal').style.display = 'block';
+            document.getElementById('portafolio').scrollIntoView({ behavior: 'auto' });
+        }
+    </script>
+
+</body>
+</html>
